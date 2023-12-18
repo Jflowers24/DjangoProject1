@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="{% static "styles.css" %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 class="Register">Register</h3>
+    <div class="regBox">
+      <form method="POST" action="" class="regForm">
+        {% csrf_token %} {{form.name.label}}{{form.name}}
+        <br />
+        {{form.email.label}}{{form.email}}
+        <br />
+        {{form.password.label}}{{form.password}}
+        <br />
+
+        <div class="logincar">
+          <img
+            class="logincar"
+            src="https://www.svgrepo.com/show/8636/car-black-silhouette-side-view.svg"
+          />
+        </div>
+
+        <input type="submit" name="Create User" class="submit" />
+        <div class="makesure">
+          <p>Already have an account?</p>
+          <a href="http://127.0.0.1:8000/login/">Login</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
