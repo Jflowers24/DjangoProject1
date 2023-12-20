@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 
 # Create your models here.
 class Account(models.Model):
-    name = models.CharField(max_length=20, null = True)
+    username = models.CharField(max_length=20, null = True)
     email = models.EmailField(max_length=50, null = True)
     password = models.CharField(max_length=50, null = True)
     origin_date = models.DateTimeField(auto_now_add=True, null = True)

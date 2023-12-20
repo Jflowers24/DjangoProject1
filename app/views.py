@@ -9,13 +9,16 @@ from django.contrib import messages
 # Create your views here.:
 from .models import *
 from .forms import Account
+from .forms import CreateUserForm
+from .forms import UserCreationForm
+
 
 
 def Register(request):
-    form = Account()
+    form = UserCreationForm()
 
     if request.method == "POST":
-        form = Account(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
 
@@ -26,16 +29,17 @@ def Register(request):
 
 def loginpage(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
+        name = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request, name=name, password=password)
+        user = authenticate(request, username=name, password=password)
 
-
-        if user:
+        print(user)
+        if user is not None:
             login(request, user)
-            return redirect('/') 
+            return redirect('home')
         else:
-            messages.info(request, 'Username or Password is incorrect')
+            messages.info(request, 'Username or Password is incorrect') 
+
     context = {}
     return render(request,"login.html", context)
     

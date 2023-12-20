@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="{% static "styles.css" %}">
+  <link rel="stylesheet" href="{% static "styels.css" %}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,7 @@
     <h3 class="Register">Register</h3>
     <div class="regBox">
       <form method="POST" action="" class="regForm">
-        {% csrf_token %} {{form.name.label}}{{form.name}}
+        {% csrf_token %} {{form.username.label}}{{form.username}}
         <br />
         {{form.email.label}}{{form.email}}
         <br />

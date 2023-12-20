@@ -1,5 +1,8 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="{% static "styels.css" %}">
   <head>
     <title>Login</title>
     <link
@@ -22,7 +25,7 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        background: rgb(1, 52, 94);
+        background: rgb(16, 89, 118);
       }
       .user_card {
         width: 350px;
@@ -90,6 +93,8 @@
     </style>
   </head>
   <body>
+    
+    </nav>
     <div class="container h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="user_card">
@@ -107,7 +112,7 @@
                 </div>
                 <input
                   type="text"
-                  name="name"
+                  name="username"
                   placeholder="Username..."
                   class="form-control"
                 />
@@ -133,7 +138,7 @@
           </div>
 
           {% for message in messages %}
-          <p id="messages">{{message}}</p>
+            <p id="messages">{{message}}</p>
           {% endfor %}
 
           <div class="mt-4">
