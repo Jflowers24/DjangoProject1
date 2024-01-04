@@ -11,13 +11,16 @@
     <h3 class="Register">Register</h3>
     <div class="regBox">
       <form method="POST" action="" class="regForm">
-        {% csrf_token %} {{form.username.label}}{{form.username}}
-        <br />
-        {{form.email.label}}{{form.email}}
-        <br />
-        {{form.password.label}}{{form.password}}
-        <br />
-
+        {% csrf_token %} {% for field in form %}
+        <div class="mb-3">
+          <label for="{{ field.id_for_label }}" class="form-label"
+            >{{ field.label }}</label
+          >
+          {{ field }}
+        </div>
+        {% endfor %} {% if form.errors %}
+        <div class="alert alert-danger">{{ form.errors }}</div>
+        {% endif %}
         <div class="logincar">
           <img
             class="logincar"
