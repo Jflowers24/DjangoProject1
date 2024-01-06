@@ -1,6 +1,8 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.shortcuts import render, redirect
+from django.conf import settings
+
 
 # Create your models here.
 class Account(models.Model):
@@ -11,3 +13,15 @@ class Account(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Post(models.Model):
+    Title = models.CharField(max_length=20, null = True)
+    Description = models.CharField(max_length=20, null = True)
+    ##Image = models.ImageField()
+    Created_at = models.DateTimeField(auto_now_add=True)
+    User = models.ForeignKey(Account, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+

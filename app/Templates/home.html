@@ -28,7 +28,17 @@
           src="https://i.pinimg.com/originals/80/00/f4/8000f409169eafcd39059d9dcbbc8800.png"
         />
       </div>
+      <span class="heyuser" id="hello-msg">Hello, {{request.user}}!</span>
+      <a href="{% url 'logout' %}">
+        <img
+          class="log_out"
+          src="https://static-00.iconduck.com/assets.00/logout-icon-2048x2046-yqonjwjv.png"
+        />
+      </a>
+      <img class="profile" src="" />
     </nav>
+
+    <img src="/app/images/car222.png" />
 
     <main>{% block content %}{% endblock content %}</main>
   </body>

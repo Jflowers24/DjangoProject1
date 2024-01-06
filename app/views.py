@@ -8,13 +8,17 @@ from django.contrib import messages
 
 # Create your views here.:
 from .models import *
-from .forms import Account
+from .forms import Account, Post
 from .forms import CreateUserForm
 from .forms import UserCreationForm
 
+from django.contrib.auth.decorators import login_required
+from .decorators import unauthenticated_user, allowed_users
 
 
+@unauthenticated_user
 def Register(request):
+    
     form = UserCreationForm()
 
     if request.method == "POST":
@@ -28,5 +32,29 @@ def Register(request):
     return render(request, "Register.html", context)
     
 
+@allowed_users(allowed_roles=['Admins'])
 def Home(request: HttpRequest)-> HttpResponse:
     return render(request,"home.html")
+
+def userpage(request):
+    context = {}
+    return render(request, 'accounts/user.html', context)
+
+def logoutuser(request):
+    logout(request)
+    return redirect('login')
+
+def createPost(request):
+    form = Post()
+
+    if request.method == 'POST':
+        form = Post(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.User = request.User
+            post.save()
+            return redirect(post_list)
+        
+
+def post_list(request):
+    ...
