@@ -22,6 +22,6 @@ class Post(models.Model):
     User = models.ForeignKey(Account, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.Title
 
 

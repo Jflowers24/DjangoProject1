@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="{% static "styles.css" %}">
+  <link rel="stylesheet" href="{% static "styles1.css" %}">
 
   <head>
     <meta charset="UTF-8" />
@@ -39,6 +39,15 @@
     </nav>
 
     <img src="/app/images/car222.png" />
+
+
+    <a href="{% url 'create_post' %}">
+      <button class="post">Post</b>
+    </a>
+
+    <a href="{% url 'post_list' %}">
+      <button class="posts">Posts</b>
+    </a>
 
     <main>{% block content %}{% endblock content %}</main>
   </body>

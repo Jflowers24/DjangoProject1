@@ -8,7 +8,7 @@ from django.contrib import messages
 
 # Create your views here.:
 from .models import *
-from .forms import Account, Post
+from .forms import Account, PostForm
 from .forms import CreateUserForm
 from .forms import UserCreationForm
 
@@ -45,16 +45,21 @@ def logoutuser(request):
     return redirect('login')
 
 def createPost(request):
-    form = Post()
+    form = PostForm()
 
     if request.method == 'POST':
-        form = Post(request.POST)
+        form = PostForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.User = request.User
-            post.save()
+            postie = form.save(commit=False)
+            postie.User = request.User
+            postie.save()
             return redirect(post_list)
-        
+        else:
+            form = PostForm()
+    return render(request, 'post.html', {'form': form})
 
 def post_list(request):
-    ...
+    posts = Post.objects.all()
+    return render(request, 'posts.html', {'posts': posts})
+
+
