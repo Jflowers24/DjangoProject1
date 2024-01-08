@@ -48,11 +48,13 @@ def createPost(request):
     form = PostForm()
 
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(initial={"User": request.user})
         if form.is_valid():
             postie = form.save(commit=False)
+            print(form.User)
             postie.User = request.User
-            postie.save()
+            postie.save
+            
             return redirect(post_list)
         else:
             form = PostForm()
