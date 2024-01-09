@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(30, 42, 46);
+}
+
+.Posts{
+    position:relative;
+    left:35%;
+    top: 10px;
+    text-align: center;
+    width: 250px;
+    background-color: rgb(80, 80, 80);
+    height: 200px;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    padding: 60px 60px;
+    border-radius: 10%;
+    color:white;
+    padding: -10%;
+}
+
+.Post{
+    width:100%;
+    position:relative;
+    left:35%;
+    top: 29px;
+    text-align: center;
+    width: 200px;
+    background-color: rgb(84, 84, 84);
+    height: 290px;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    padding: 60px 60px;
+    border-radius: 10%;
+}

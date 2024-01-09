@@ -1,14 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <link rel="stylesheet" href="{% static "styless.css" %}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PostTime</title>
   </head>
   <body>
-    <form method="post" action="{% url 'create_post' %}">
+    <div class="Post">
+    <form method="post" action="">
         {% csrf_token %} 
         {{ form.as_p }}
-        <input type="submit" name="CreatePost" class="submit" />
+        {{form.errors}}
+        <input type="submit" name="CreatePost" class="homebutton1" />
+    </div>
+
+        <a style="position:relative;left:0px;top:-1px;" href="{% url 'home' %}">
+          <button style="position:relative;left:552px;top:-50px;height:40px;width:90px;">Home</b>
+        </a>
   </body>
 </html>

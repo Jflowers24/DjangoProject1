@@ -1,5 +1,8 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+  <link rel="stylesheet" href="{% static "styless.css" %}">
   <head>
     {% load static %}
     <meta charset="UTF-8" />
@@ -7,12 +10,21 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Posts</h1>
+    <h1 style="position:relative;left:565px;color:white;">Posts</h1>
+    
     {% for post in posts %}
-
+    <div class='Posts'>
     <h2>{{ post.Title }}</h2>
+    <img>{{post.Image }}</img>
     <p>{{ post.Description }}</p>
-    <p>By: {{ post.user.username }} at {{ post.created_at }}</p>
+    <p>By: {{ post.User }} at</p>
+    <p>{{ post.Created_at }}</p>
+    </div>
     {% endfor %}
+    
+
+    <a style="position:relative;left:0px;top:-1px;" href="{% url 'home' %}">
+      <button style="position:relative;left:554px;top:-90px;width:100px;height:30px;">Home</b>
+    </a>
   </body>
 </html>
