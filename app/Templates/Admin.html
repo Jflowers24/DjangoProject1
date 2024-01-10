@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="{% static "styless.css" %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% for post in posts %}
+       
+            
+                <div class='Posts'>
+                    <h2>{{ post.Title }}</h2>
+                    <img>{{ post.Image }}</img>
+                    <p>{{ post.Description }}</p>
+                    <p>By: {{ post.User }} at</p>
+                    <p>{{ post.Created_at }}</p>
+                    <form method="post" action="{% url 'deletepost'%}">
+                        {% csrf_token %}
+                        <form method='post' action="{% url 'dp' post.id %}">
+                            {%csrf_token%}
+                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                            <button type="submit">DeletePost</button>
+                        </form>
+                    </form>
+                </div>
+            
+            
+        {% endfor %}
+  </body>
+</html>

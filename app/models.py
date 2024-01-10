@@ -12,9 +12,13 @@ class Account(models.Model):
     email = models.EmailField(max_length=50, null = True)
     password = models.CharField(max_length=50, null = True)
     origin_date = models.DateTimeField(auto_now_add=True, null = True)
+    
 
     def __str__(self):
         return self.username
+    
+
+    
     
 class Post(models.Model):
     Title = models.CharField(max_length=60, null = True)
@@ -22,8 +26,11 @@ class Post(models.Model):
     Image = models.ImageField(upload_to='post_images/', null=True, blank=True)
     Created_at = models.DateTimeField(auto_now_add=True)
     User = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    UserPic = models.ImageField(upload_to='post_images/', null=True, blank=True)
 
     def __str__(self):
         return self.Title
+    
+
 
 

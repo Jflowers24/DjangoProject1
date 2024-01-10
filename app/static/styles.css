@@ -168,18 +168,22 @@ body{
 
 .post{
     position: relative;
-    top:100px;
-    width:50px;
-    height:20px;
+    top:70px;
+    width:100px;
+    height:30px;
     cursor:pointer;
+    left:830px;
 }
 
 .posts{
     position: relative;
-    top:90px;
-    width:50px;
-    height:20px;
+    top:70px;
+    width:100px;
+    height:30px;
     cursor:pointer;
+    left:220px;
 }
+
+
 
 

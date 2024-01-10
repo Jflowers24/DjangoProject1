@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import Register, Home, userpage,  logout, post_list, createPost
+from app.views import Register, Home, userpage,  logout, post_list, createPost, updateName,usersposts, delete_posts, admin_page
 from django.contrib.auth.views import LoginView 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -27,6 +27,11 @@ urlpatterns = [
     path("accounts/profile/",Home),
     path('user/', userpage, name='user-page'),
     path('Posts/', post_list, name = 'post_list'),
-    path('CreatePost/', createPost, name = 'create_post' )
+    path('CreatePost/', createPost, name = 'create_post' ),
+    path('UpdateUsername/', updateName, name ='update_username'),
+    path('DeletePost/', usersposts, name='deletepost'),
+    path('delete_posts/<int:post_id>/', delete_posts, name='dp'),
+    path('AdminBabay/', admin_page, name='adminnn')
+
 
 ]

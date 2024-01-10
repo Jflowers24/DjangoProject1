@@ -15,4 +15,13 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['Title', 'Description', 'User', 'Image']
+
+
+class UpdateUsername(forms.Form):
+    new_username = forms.CharField( max_length=150, required=False)
+    
+
+class delete(forms.Form):
+    postTitle = forms.CharField(max_length=300, required=False)
+    
         
