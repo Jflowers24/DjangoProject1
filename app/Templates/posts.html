@@ -7,18 +7,23 @@
     {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>All Posts</title>
   </head>
-  <body>
-    <h1 style="position:relative;left:565px;color:white;">Posts</h1>
+  <body style="overflow-x:hidden;">
+    <h1 style="position:relative;left:565px;color:white;1">Posts</h1>
     
+    
+
     {% for post in posts %}
-    <div class='Posts'>
+    <div class='Posts' style="margin-bottom: 5%;height:300px;">
     <h2>{{ post.Title }}</h2>
     <img>{{post.Image }}</img>
     <p>{{ post.Description }}</p>
     <p>By: {{ post.User }} at</p>
     <p>{{ post.Created_at }}</p>
+    <img style="width:300px;position:relative;left:-600px; top:-500%;height:600px;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image0_0.jpg?Expires=1705072496&Signature=SVMxQIg3TJrtMFz3HVKiU8jfOJ4Puh0DmAmmjMV1~QGPEq9ODMj-SvFRlHrGQ1HIcgLMqrqdomZdmeKjHHl5rGAEuERb1Bi27AjNFts29mbAOJt3934Nocl~vVmf7H14RtykI82REH2VPFThPl1P7tZ1CXphMQptw4TS6oZNCq3M9C2dMITeIkyADq9FqAbyXoeCPdPAM7sCd1vW-T4sPTOTATUbhsTKeX0nzDtppUcEFsDFBpdryCGEMnDvmzitiM0qxoH8DLOpVad~RBZmpDWY8Gh3OpvPorBGZLrjSoma1sBpeN3kzNwjJ1braVN1YRxpDDLMXb7rb6f1C4sMYQ__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
+    <img style="width:300px;position:relative;left:600px; top:-500%;height:600px;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image0_0.jpg?Expires=1705072496&Signature=SVMxQIg3TJrtMFz3HVKiU8jfOJ4Puh0DmAmmjMV1~QGPEq9ODMj-SvFRlHrGQ1HIcgLMqrqdomZdmeKjHHl5rGAEuERb1Bi27AjNFts29mbAOJt3934Nocl~vVmf7H14RtykI82REH2VPFThPl1P7tZ1CXphMQptw4TS6oZNCq3M9C2dMITeIkyADq9FqAbyXoeCPdPAM7sCd1vW-T4sPTOTATUbhsTKeX0nzDtppUcEFsDFBpdryCGEMnDvmzitiM0qxoH8DLOpVad~RBZmpDWY8Gh3OpvPorBGZLrjSoma1sBpeN3kzNwjJ1braVN1YRxpDDLMXb7rb6f1C4sMYQ__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
+
     </div>
     {% endfor %}
     
@@ -26,5 +31,8 @@
     <a style="position:relative;left:0px;top:-1px;" href="{% url 'home' %}">
       <button style="position:absolute;left:574px;top:100px;width:100px;height:30px;">Home</b>
     </a>
+
+
+
   </body>
 </html>

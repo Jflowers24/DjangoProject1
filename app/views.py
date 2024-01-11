@@ -5,7 +5,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import inlineformset_factory
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
 # Create your views here.:
 from .models import *
 from .forms import Account, PostForm
@@ -38,7 +37,7 @@ def Register(request):
     
 
 #@allowed_users(allowed_roles=['Admins','Users'])
-@login_required
+
 def Home(request: HttpRequest)-> HttpResponse:
     post = Post.objects.filter(User=request.user).last()
 
@@ -49,10 +48,10 @@ def userpage(request):
     context = {}
     return render(request, 'accounts/user.html', context)
 
-@login_required
+
 def logoutuser(request):
     logout(request)
-    return redirect('login')
+    return redirect('/')
 
 
 @login_required
@@ -102,7 +101,7 @@ def delete_posts(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if post.User == request.user:
         post.delete()
-    return redirect('deletepost')
+    return redirect('home')
 
 @login_required
 def usersposts(request):

@@ -1,22 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="{% static "styles.css" %}">
+  <link rel="stylesheet" href="{% static "styles1.css" %}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Username Update</title>
   </head>
   <body>
     <h2 style="color: white">Update Username</h2>
-    <div style="postion:relative;left:1000px;">
+    <div style="postion:relative;left:1000px;color:white;">
     <form method="post" action="{% url 'update_username' %}">
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">Update Username</button>
     </form>
     <div>
         <a style="position:relative;left:0px;top:-1px;" href="{% url 'home' %}">
-            <button style="position:relative;left:552px;top:-50px;height:40px;width:90px;">Home</b>
+            <button style="position:relative;left:4px;top:30px;height:40px;width:90px;">Home</b>
           </a>
   </body>
 </html>

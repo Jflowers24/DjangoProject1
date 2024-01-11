@@ -5,14 +5,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Delete Post</title>
   </head>
   <body>
+
+    
+
     <div>
         {% for post in posts %}
        
             {% if post.User == request.user %}
-                <div class='Posts'>
+                <div class='Posts'style="margin-bottom: 5%;height:300px;">
                     <h2>{{ post.Title }}</h2>
                     <img>{{ post.Image }}</img>
                     <p>{{ post.Description }}</p>
@@ -34,9 +37,11 @@
      </div>
     
     
-
-    <a style="" href="{% url 'home' %}">
-        <button style="position:relative;left:585px;top:-300px;height:40px;width:90px;">Home</b>
-      </a>
+     
+        <a style="position:absolute;" href="{% url 'home' %}">
+            <button style="position:relative;left:580px;top:-950px;height:40px;width:90px;">Home</b>
+        
+     </div>
   </body>
+
 </html>

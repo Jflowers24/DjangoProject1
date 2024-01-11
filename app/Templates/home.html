@@ -2,12 +2,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="{% static "styles.css" %}">
+  <link rel="stylesheet" href="{% static "styles1.css" %}">
 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Home</title>
   </head>
   <body>
     {% csrf_token %}
@@ -30,24 +30,30 @@
         />
       </div>
       <span class="heyuser" id="hello-msg">Hello, {{request.user}}!</span>
-      <a href="{% url 'logout' %}">
-        <img
-          class="log_out"
-          src="https://static-00.iconduck.com/assets.00/logout-icon-2048x2046-yqonjwjv.png"
-        />
-      </a>
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}">
+          <img
+            class="log_out"
+            src="https://static-00.iconduck.com/assets.00/logout-icon-2048x2046-yqonjwjv.png"
+          />
+        </a>
+      {% endif %}
       
       <img class="profile" src="" />
     </nav>
 
-    <img src="/app/images/car222.png" />
+    
 
-    <img style="width:300px;position:relative;left:-40px; top:48px;height:5000;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image1_0.jpg?Expires=1704909638&Signature=HPbsCUrHw~X7xcqupjlPOsdedHkUEU40bn8yw9jvTmNqZv-A3RbikZLzWaaR6uJgngP9Jt-4~~4Klx1OIizfmL9WEtGe3OZApiXnjZL10PUAL7LDNgID9uqi0KR2ibGKQv2I7PCfgCMgCRseMxyse~dcw-kaWXwLsqP7VLxTQffbYNndGtd3n-RbOsQqbi4FJlI76qDB~848hCeAo3noLNVCmQanRA8N02sN7K8IJ-s24BB3sLAQOW9FIgI~-Y6QSpsymTlzJaM5ltjZdU9R8bKrWP-4agixTnKAqLxCtYbzJd1SLTC6-fVGPkutbdbi1Cw5r~CuZeto9ddJBxPRAA__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
-    <img style="width:300px;position:relative;left:650px; top:48px;height:5000;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image1_0.jpg?Expires=1704909638&Signature=HPbsCUrHw~X7xcqupjlPOsdedHkUEU40bn8yw9jvTmNqZv-A3RbikZLzWaaR6uJgngP9Jt-4~~4Klx1OIizfmL9WEtGe3OZApiXnjZL10PUAL7LDNgID9uqi0KR2ibGKQv2I7PCfgCMgCRseMxyse~dcw-kaWXwLsqP7VLxTQffbYNndGtd3n-RbOsQqbi4FJlI76qDB~848hCeAo3noLNVCmQanRA8N02sN7K8IJ-s24BB3sLAQOW9FIgI~-Y6QSpsymTlzJaM5ltjZdU9R8bKrWP-4agixTnKAqLxCtYbzJd1SLTC6-fVGPkutbdbi1Cw5r~CuZeto9ddJBxPRAA__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
-    <img style="width:300px;position:relative;left:-648px; top:300px;height:4000;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image1_0.jpg?Expires=1705001961&Signature=kuD~32WjTB~hvYZjkZwRvd4-B8y3UfanEipPQLQ9k5W3hU-hXYCv6VN3~SCGUQtX3sYJ9J1k0WMhBD~JAKu32DvDYmd0W2tnl6EQZJVfdVs-3FfMy7oGlEO-tHmg~5lYUscB4VqkM4aLcpqKag1kJ2C5MiCNOoO16nhNlq95zF84hZe8px~X~8UG8veODmaPWbfQ7kOnXw-Ah9OMI2XYcoiuby4K3BV3~5wSHVutPb61mUt8AnUYtaXAfCs38iGDDngewzVsnFK3BFFtyi0EkPC2PtsKsYH6ojAW1wi~jPFpZe1pZZ7sByomtW08VPAKSct8q1JDaTLmho9lX3fiHg__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
-    <img style="width:300px;position:relative;left:42px; top:300px;height:100;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image1_0.jpg?Expires=1705001961&Signature=kuD~32WjTB~hvYZjkZwRvd4-B8y3UfanEipPQLQ9k5W3hU-hXYCv6VN3~SCGUQtX3sYJ9J1k0WMhBD~JAKu32DvDYmd0W2tnl6EQZJVfdVs-3FfMy7oGlEO-tHmg~5lYUscB4VqkM4aLcpqKag1kJ2C5MiCNOoO16nhNlq95zF84hZe8px~X~8UG8veODmaPWbfQ7kOnXw-Ah9OMI2XYcoiuby4K3BV3~5wSHVutPb61mUt8AnUYtaXAfCs38iGDDngewzVsnFK3BFFtyi0EkPC2PtsKsYH6ojAW1wi~jPFpZe1pZZ7sByomtW08VPAKSct8q1JDaTLmho9lX3fiHg__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
+    <img style="width:300px;position:relative;left:-10px; top:300px;height:100;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image1_0.jpg?Expires=1705001961&Signature=kuD~32WjTB~hvYZjkZwRvd4-B8y3UfanEipPQLQ9k5W3hU-hXYCv6VN3~SCGUQtX3sYJ9J1k0WMhBD~JAKu32DvDYmd0W2tnl6EQZJVfdVs-3FfMy7oGlEO-tHmg~5lYUscB4VqkM4aLcpqKag1kJ2C5MiCNOoO16nhNlq95zF84hZe8px~X~8UG8veODmaPWbfQ7kOnXw-Ah9OMI2XYcoiuby4K3BV3~5wSHVutPb61mUt8AnUYtaXAfCs38iGDDngewzVsnFK3BFFtyi0EkPC2PtsKsYH6ojAW1wi~jPFpZe1pZZ7sByomtW08VPAKSct8q1JDaTLmho9lX3fiHg__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
 
-    <img src="/app/images/car222.png" />
+    <img style="width:300px;position:relative;left:654px; top:320px;height:100;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image1_0.jpg?Expires=1705001961&Signature=kuD~32WjTB~hvYZjkZwRvd4-B8y3UfanEipPQLQ9k5W3hU-hXYCv6VN3~SCGUQtX3sYJ9J1k0WMhBD~JAKu32DvDYmd0W2tnl6EQZJVfdVs-3FfMy7oGlEO-tHmg~5lYUscB4VqkM4aLcpqKag1kJ2C5MiCNOoO16nhNlq95zF84hZe8px~X~8UG8veODmaPWbfQ7kOnXw-Ah9OMI2XYcoiuby4K3BV3~5wSHVutPb61mUt8AnUYtaXAfCs38iGDDngewzVsnFK3BFFtyi0EkPC2PtsKsYH6ojAW1wi~jPFpZe1pZZ7sByomtW08VPAKSct8q1JDaTLmho9lX3fiHg__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
+
+    <img style="width:300px;position:relative;left:350px; top:40px;height:100;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image1_0.jpg?Expires=1705001961&Signature=kuD~32WjTB~hvYZjkZwRvd4-B8y3UfanEipPQLQ9k5W3hU-hXYCv6VN3~SCGUQtX3sYJ9J1k0WMhBD~JAKu32DvDYmd0W2tnl6EQZJVfdVs-3FfMy7oGlEO-tHmg~5lYUscB4VqkM4aLcpqKag1kJ2C5MiCNOoO16nhNlq95zF84hZe8px~X~8UG8veODmaPWbfQ7kOnXw-Ah9OMI2XYcoiuby4K3BV3~5wSHVutPb61mUt8AnUYtaXAfCs38iGDDngewzVsnFK3BFFtyi0EkPC2PtsKsYH6ojAW1wi~jPFpZe1pZZ7sByomtW08VPAKSct8q1JDaTLmho9lX3fiHg__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
+
+    <img style="width:300px;position:relative;left:-922px; top:30px;height:100;" src="https://cdn.gencraft.com/prod/user/066de7e1-6a43-4c68-a2bb-f65c031935c5/e5ad634c-e3da-465d-bd9e-3570e0b9f563/image/image1_0.jpg?Expires=1705001961&Signature=kuD~32WjTB~hvYZjkZwRvd4-B8y3UfanEipPQLQ9k5W3hU-hXYCv6VN3~SCGUQtX3sYJ9J1k0WMhBD~JAKu32DvDYmd0W2tnl6EQZJVfdVs-3FfMy7oGlEO-tHmg~5lYUscB4VqkM4aLcpqKag1kJ2C5MiCNOoO16nhNlq95zF84hZe8px~X~8UG8veODmaPWbfQ7kOnXw-Ah9OMI2XYcoiuby4K3BV3~5wSHVutPb61mUt8AnUYtaXAfCs38iGDDngewzVsnFK3BFFtyi0EkPC2PtsKsYH6ojAW1wi~jPFpZe1pZZ7sByomtW08VPAKSct8q1JDaTLmho9lX3fiHg__&Key-Pair-Id=K3RDDB1TZ8BHT8" />
+
+
+
 
 
     
